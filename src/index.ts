@@ -16,12 +16,14 @@ program
   .description('Create a new Celo project')
   .argument('[project-name]', 'Name of the project')
   .option('-d, --description <description>', 'Project description')
-  .option('-t, --template <type>', 'Template type (basic, farcaster-miniapp, minipay, ai-chat)')
+  .option('-t, --template <type>', 'Template type (basic, farcaster-miniapp, minipay, ai-chat, staking)') // Güncellendi
   .option('--wallet-provider <provider>', 'Wallet provider (rainbowkit, thirdweb, none)')
   .option('-c, --contracts <framework>', 'Smart contract framework (hardhat, foundry, none)')
   .option('--skip-install', 'Skip package installation')
   .option('-y, --yes', 'Skip all prompts and use defaults')
   .action(createCommand);
+
+// Ekstra komut eklemek istersen buraya gelir (örn: program.command('staking')...)
 
 program.on('command:*', () => {
   console.error(chalk.red(`Invalid command: ${program.args.join(' ')}`));
